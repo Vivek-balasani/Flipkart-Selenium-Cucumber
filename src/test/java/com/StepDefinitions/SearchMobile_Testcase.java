@@ -2,6 +2,8 @@ package com.StepDefinitions;
 
 import java.io.IOException;
 
+import org.testng.Assert;
+
 import com.Baseclass.Library;
 import com.Pages.SearchPage;
 
@@ -22,7 +24,14 @@ public void launch_the_flipkart_application() throws IOException {
 
 @When("Close the popup")
 public void close_the_popup() {
-	System.out.println(driver.getTitle());
+	if(driver.getTitle().contains("product")){
+		System.out.println(driver.getTitle());
+	}
+	else {
+		teardown();
+		Assert.fail();
+		
+	}
   
 }
 

@@ -44,7 +44,7 @@ public class Library {
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(10));
 			driver.navigate().to(prop.getProperty("url"));
-			driver.navigate().refresh();
+			
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -53,7 +53,7 @@ public class Library {
 	}
 	
 	public void teardown() {
-		driver.close();
+		driver.quit();
 	}
 
 }
